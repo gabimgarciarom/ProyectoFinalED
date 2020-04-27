@@ -23,16 +23,49 @@ public class LinkedList<T> {
         this.size +=1;
     }
     
+    public T topBack(){
+        Nodo<T> temp = this.head;
+        while(temp.getNext()!=null){
+            temp = temp.getNext();
+        }
+        return temp.getKey();
+    }
+    
+    public T popBack(){
+        Nodo<T> temp = this.head;
+        while(temp.getNext().getNext()!=null){
+            temp = temp.getNext();
+        }
+        T aux = (T) temp.getNext().getKey();
+        temp.setNext(null);
+        return aux;
+    }
+    
     public void pushFront(T key){
         Nodo<T> nuevoNodo = new Nodo<>(key, this.head.getNext());
         this.head.setNext(nuevoNodo);
         this.size ++;
     }
     
-    public T popFront(){
+    public T topFront(){ //Falta implementar si head == null
+        return (T) this.head.getNext().getKey();
+    }
+    
+    public T popFront(){ //Falta implementar si head == null
         Nodo<T> temp = this.head.getNext();
         this.head.setNext(temp.getNext());
         return temp.getKey();
+    }
+    
+    public boolean find(T key){
+        Nodo<T> temp = this.head.getNext();
+        while(temp!=null){
+            if(temp.getKey() == key){
+                return true;
+            }
+            temp = temp.getNext();
+        }
+        return false;
     }
     
     public boolean isEmpty(){

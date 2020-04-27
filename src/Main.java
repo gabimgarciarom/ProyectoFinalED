@@ -16,5 +16,14 @@ public class Main {
         System.out.println(list.popFront());
         System.out.println(list.popFront());
         System.out.println(list.popFront());
+        System.out.println(list.topFront());
+        System.out.println(list.topBack());
+        System.out.println(list.popBack());
+        list.pushFront(10);
+        list.pushBack(9);
+        list.pushFront(8);
+        list.imprimir();
+        System.out.println(list.find(9));
+        System.out.println(list.find(11));
     }
 }
